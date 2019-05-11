@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="SVM,">
 
 
 
@@ -96,16 +96,18 @@
 
 
 
-<meta name="description" content="做一枚务实的ML学习者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="包袱真多">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="线性分类器SVM是找到一个最佳位置的超平面把样本分开，如果分开的是二分类的问题，我们将分开的样本定义为正样本和负样本，样本的标签值为+1或-1。 这里的超平面，在二维空间中，就表示一条直线；在三维空间中就表示平面，更高维空间中表示平面的推广。 在高中时学习平面解析几何时，我们将直线表示为：   $ax + by + c = 0$ 而不能将其表示为：$y = kx + b$ 因为对于k，b表示的直线">
+<meta name="keywords" content="SVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="$\lceil我爱机器学习\rfloor SVM(一)线性可分支持向量机$">
+<meta property="og:url" content="http://yoursite.com/2019/05/11/svm1/index.html">
 <meta property="og:site_name" content="包袱真多">
-<meta property="og:description" content="做一枚务实的ML学习者">
+<meta property="og:description" content="线性分类器SVM是找到一个最佳位置的超平面把样本分开，如果分开的是二分类的问题，我们将分开的样本定义为正样本和负样本，样本的标签值为+1或-1。 这里的超平面，在二维空间中，就表示一条直线；在三维空间中就表示平面，更高维空间中表示平面的推广。 在高中时学习平面解析几何时，我们将直线表示为：   $ax + by + c = 0$ 而不能将其表示为：$y = kx + b$ 因为对于k，b表示的直线">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-11T11:40:43.142Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="包袱真多">
-<meta name="twitter:description" content="做一枚务实的ML学习者">
+<meta name="twitter:title" content="$\lceil我爱机器学习\rfloor SVM(一)线性可分支持向量机$">
+<meta name="twitter:description" content="线性分类器SVM是找到一个最佳位置的超平面把样本分开，如果分开的是二分类的问题，我们将分开的样本定义为正样本和负样本，样本的标签值为+1或-1。 这里的超平面，在二维空间中，就表示一条直线；在三维空间中就表示平面，更高维空间中表示平面的推广。 在高中时学习平面解析几何时，我们将直线表示为：   $ax + by + c = 0$ 而不能将其表示为：$y = kx + b$ 因为对于k，b表示的直线">
 
 
 
@@ -134,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/11/svm1/">
 
 
 
 
 
-  <title>包袱真多</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>$\lceil我爱机器学习\rfloor SVM(一)线性可分支持向量机$ | 包袱真多</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -165,9 +167,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
-   page-home 
- ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -250,9 +250,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -282,9 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/11/svm1/" itemprop="url">$\lceil我爱机器学习\rfloor SVM(一)线性可分支持向量机$</a></h1>
+          <h1 class="post-title" itemprop="name headline">$\lceil我爱机器学习\rfloor SVM(一)线性可分支持向量机$</h1>
         
 
         <div class="post-meta">
@@ -356,21 +354,49 @@
       
 
       
-        
-          
-          线性分类器SVM是找到一个最佳位置的超平面把样本分开，如果分开的是二分类的问题，我们将分开的样本定义为正样本和负样本，样本的标签值为+1或-1。
-这里的超平面，在二维空间中，就表示一条直线；在三维空间中就表示平面，更高维空间中表示平面的推广。
-在高中时学习平面解析几何时，我们将直线表示为：  
-$a
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/11/svm1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h1 id="线性分类器"><a href="#线性分类器" class="headerlink" title="线性分类器"></a>线性分类器</h1><p>SVM是找到一个最佳位置的超平面把样本分开，如果分开的是二分类的问题，我们将分开的样本定义为正样本和负样本，样本的标签值为+1或-1。</p>
+<p>这里的超平面，在二维空间中，就表示一条直线；在三维空间中就表示平面，更高维空间中表示平面的推广。</p>
+<p>在高中时学习平面解析几何时，我们将直线表示为：  </p>
+<p>$ax + by + c = 0$</p>
+<p>而不能将其表示为：$y = kx + b$</p>
+<p>因为对于k，b表示的直线来说，当直线垂直于x轴时，k = $+\infty$</p>
+<p>同理，在空间解析几何中，我们将三维空间中的平面表示为：<br>$ax+by+cz+d=0$</p>
+<p>推广到高维空间就可以表示为：</p>
+<p>$W^TX+b=0$ </p>
+<p>W就表示n维空间，其表示$(w_1,w_2,…,w_n)这n个分量分别与(x_1,x_2,…,x_n)$这n个分量进行相乘，W称为权重向量，b称为偏置项。</p>
+<p>落在超平面一侧的样本是大于0 或者小于0的，对于二分类的问题来说，我们可以使用$sgn(w^Tx+b)$来对样本进行预测。</p>
+<p>超平面的方程只是给出了一个分界面，具体哪一边为正，哪边为负，我们是可以进行灵活控制的。</p>
+<p>拿一个二维直线举例，当方程乘以一个负数时，其就会反号。其方程还是原来的直线方程，在n维空间中还是表示同样的超平面，但是判定的符号相反了。如过(1,0),(0,1)点的直线x + y - 1=0，对于点(2, -2)来说，是小于0的，但是对方程x + y -1 = 0乘以负号后，对于点(2, -2)的判断就变为大于0了。所以通过控制w、b的值，我们可以控制分类的正负号。</p>
+<p>这样对于$W^TX + b = 0$而言，我们可以对其乘以一个不等于0的系数k，代表的还是同一条超平面的直线，如果k小于0时，还会出现反号的情况，因此对于同一条直线而言，是存在冗余的w、b值的。</p>
+<h1 id="分类间隔"><a href="#分类间隔" class="headerlink" title="分类间隔"></a>分类间隔</h1><p>对于一个线性可分的问题，我们可以用一条直线，在高维空间中就是一个超平面把两个样本分开。</p>
+<p>但是往往能把两个样本进行分开的分类器不止一个，那么哪一个是最好的呢？</p>
+<p>这里我们定义一个规则：</p>
+<ol>
+<li><p>保证样本都能被超平面正确分类；</p>
+</li>
+<li><p>分类超平面离两个样本的距离都尽可能的远；</p>
+</li>
+</ol>
+<h1 id="最大化分类间隔"><a href="#最大化分类间隔" class="headerlink" title="最大化分类间隔"></a>最大化分类间隔</h1><p>核心思想：最大化分类间隔的线性分类器；</p>
+<p>第一个目标是：能把样本正确分类，即对于正样本来说: $w^Tx_i+b &gt;= 0$，对于负样本有：$w^Tx_i+b &lt;0$,可以统一写为$y_i(w^Tx_i+b) &gt;= 0$</p>
+<p>第二个目标是分类超平面离两个样本都尽可能的远：</p>
+<p>在平面解析几何中，对于直线：$ax + by + c = 0$来说，样本点到直线的距离为：$\frac{\mid ax + by +c\mid}{\sqrt{a^2+b^2}}\quad$，对于三维空间中的平面$ax + by + cz + d = 0$来说，样本点到平面的距离为：$\frac{\mid ax + by +cz+d\mid}{\sqrt{a^2+b^2+c^2}}\quad$</p>
+<p>那么当推广到高维空间中，可以将其表示为：</p>
+<p>$d = \frac{\mid W^TX+b\mid}{||w||}\quad$</p>
+<p>在满足第一个条件约束的条件下，训练算法通过定义w和b，来极大化距离d的值。这个问题非常麻烦，因为w，b值不确定，又要对所有的点求出其距离d的值。</p>
+<p>超平面的方程存在着冗余， $k(w,b)$仍然是问题的最优解，那么我们简化这个问题的方法是：让$\mid W^TX+b\mid=c$，这样的话，求得的w和b的值就只有一组解。为了简化c的表示，我们这里让c的值取1.</p>
+<p>对w和b进行限定，以消掉冗余，同时简化问题的表达式：</p>
+<p>令$min\mid w^Tx_i+b\mid=1$,这被称为规范化超平面，即最小距离的超平面。</p>
+<p>上面的约束条件等价于：$y_i(w^Tx_i+b) &gt;= 1$</p>
+<p>$d(w,b) = min_{x_i,y_i=-1}d(w,b;x_i)+min_{x_i,y_i=1}d(w,b;x_i)$</p>
+<p>$=min_{x_i,y_i=-1}\frac{\mid w^Tx_i+b \mid}{||w||}\quad+min_{x_i,y_i=1}\frac{\mid w^Tx_i+b \mid}{||w||}\quad$</p>
+<p>$=\frac{1}{||w||}\quad(min_{x_i,y_i=-1}\mid w^Tx_i+b\mid+min_{x_i,y_i=1}\mid w^Tx_i+b\mid)$</p>
+<p>$=\frac{2}{||w||}\quad$</p>
+<h1 id="线性可分时的原问题"><a href="#线性可分时的原问题" class="headerlink" title="线性可分时的原问题"></a>线性可分时的原问题</h1><p>前面我们提到，为了满足两个条件，由$min\mid y_i(w^Tx_i+b) \mid=1$，得到：$y = (w^Tx_i+b)&gt;=1$，并且使得$||w||$最小化，即$\sqrt{w_1^2+w_2^2+{\ldots}+w_n^2}$最小化，其实就是$W^TW$最小化，最后表示为：$min \frac{1}{2}W^TW\quad$，之所以要有$\frac{1}{2}\quad$,是因为在$W^TW$中会出现$x^2$，而对f(x)求导时，为了消除2的倍数的影响。</p>
+<p>因此，支持向量机是根据正样本负样本(二分类)来找出这样一个超平面，来通过求解带不等式条件约束的极值问题来确定w和b的值。</p>
+<h1 id="凸优化的证明"><a href="#凸优化的证明" class="headerlink" title="凸优化的证明"></a>凸优化的证明</h1><p>凸优化问题：$minf(x)$是一个凸函数，集合为凸集；</p>
+<p>很好的性质就是一定能找到有全局最优点，由线性等式来得到一个</p>
+
       
     </div>
     
@@ -382,17 +408,41 @@ $a
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    DaPeng
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/05/11/svm1/" title="$\lceil我爱机器学习\rfloor SVM(一)线性可分支持向量机$">http://yoursite.com/2019/05/11/svm1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://ditingdapeng.github.io" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/SVM/" rel="tag"># SVM</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -402,10 +452,11 @@ $a
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -413,6 +464,10 @@ $a
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -433,8 +488,17 @@ $a
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/programer.jpg" alt="DaPeng">
           <p class="site-author-name" itemprop="name">DaPeng</p>
@@ -525,6 +589,22 @@ $a
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性分类器"><span class="nav-number">1.</span> <span class="nav-text">线性分类器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分类间隔"><span class="nav-number">2.</span> <span class="nav-text">分类间隔</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最大化分类间隔"><span class="nav-number">3.</span> <span class="nav-text">最大化分类间隔</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性可分时的原问题"><span class="nav-number">4.</span> <span class="nav-text">线性可分时的原问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#凸优化的证明"><span class="nav-number">5.</span> <span class="nav-text">凸优化的证明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -647,10 +727,10 @@ $a
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
