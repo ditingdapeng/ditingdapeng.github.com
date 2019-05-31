@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-11T11:40:43.142Z</updated>
+  <updated>2019-05-31T01:45:40.030Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>学习进度安排</title>
+    <link href="http://yoursite.com/2019/05/31/LearnPlan/"/>
+    <id>http://yoursite.com/2019/05/31/LearnPlan/</id>
+    <published>2019-05-31T01:31:27.000Z</published>
+    <updated>2019-05-31T01:45:40.030Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="专业学习计划"><a href="#专业学习计划" class="headerlink" title="专业学习计划"></a>专业学习计划</h1><p>在这篇文章中，窝会持续更新理清自己阶段性要学习掌握的内容，一方面是对自己当下技能点的总结，一方面想勉励自己把握好方向，少走弯路。</p><h2 id="总进度表"><a href="#总进度表" class="headerlink" title="总进度表"></a>总进度表</h2><table><thead><tr><th>学习内容</th><th style="text-align:right">要求</th><th style="text-align:center">截止时间</th><th style="text-align:center">完成状态</th></tr></thead><tbody><tr><td>Python扎实基础</td><td style="text-align:right">12章内容知识熟捻于心</td><td style="text-align:center">6月3日</td><td style="text-align:center"></td></tr><tr><td>Py文件操作总结博客</td><td style="text-align:right">对Py常用文件操作熟捻于心</td><td style="text-align:center">6月1日</td><td style="text-align:center"></td></tr><tr><td>Py中csv的处理总结博客</td><td style="text-align:right">对pandas以及csv模块的操作熟捻于心</td><td style="text-align:center">6月2号</td></tr></tbody></table><h2 id="5-31-6-7："><a href="#5-31-6-7：" class="headerlink" title="5.31 - 6.7："></a>5.31 - 6.7：</h2><p>目标：拿下杭州量化方向的offer</p><p>技能点：Python扎实基础、Py文件操作、Py处理csv操作(pandas那块)、机器学习基础知识</p><h3 id="JD禹大佬建议"><a href="#JD禹大佬建议" class="headerlink" title="JD禹大佬建议"></a>JD禹大佬建议</h3><ol><li>先找工作，工作帮助自己有正常的生活节奏；</li><li>积累技术，不去做重复劳动；</li><li>熟悉下行业，并且把其中的开源方案想透彻，消化完并梳理成文档，按照米筐、雪球、优矿、bigquant上量化网站的教程来写；</li><li>提升自己的眼界以及对新技术的敏感，多看社区；</li></ol><h3 id="学习进度安排"><a href="#学习进度安排" class="headerlink" title="学习进度安排"></a>学习进度安排</h3><ul><li><p>[ ] 对Py基础的用法要炉火纯青,并有自己的思维导图</p><p>   Py基本类型操作(重点字符串操作)、Py中组的操作(列表,元组,集合,字典)、Py运算符、Py分支循环条件枚举的Pythonic写法、Py作用域、Py函数、面向对象、正则表达式json、Py高阶、Py函数式编程:匿名高阶装饰器函数、Pythonic总结</p><p>  5.31 完成面向对象之前的内容模块；</p><p>  6.1 复习之前模块笔记，并结合手册完成正则+高阶</p><p>  6.2 复习之前模块笔记，完成函数式编程及之后模块</p></li><li><p>[ ] Py文件模块熟捻于心</p><p>  6.1 之前完成传智中对文件操作的视频学习，并结合手册扩展自己的思维导图</p></li><li><p>Py对csv的操作处理</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;专业学习计划&quot;&gt;&lt;a href=&quot;#专业学习计划&quot; class=&quot;headerlink&quot; title=&quot;专业学习计划&quot;&gt;&lt;/a&gt;专业学习计划&lt;/h1&gt;&lt;p&gt;在这篇文章中，窝会持续更新理清自己阶段性要学习掌握的内容，一方面是对自己当下技能点的总结，一方面想勉励自己把
+      
+    
+    </summary>
+    
+      <category term="Learning progress" scheme="http://yoursite.com/categories/Learning-progress/"/>
+    
+    
+      <category term="Plan" scheme="http://yoursite.com/tags/Plan/"/>
+    
+  </entry>
   
   <entry>
     <title>$\lceil我爱机器学习\rfloor SVM(一)线性可分支持向量机$</title>
