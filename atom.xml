@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-31T01:45:40.030Z</updated>
+  <updated>2019-06-01T09:33:00.037Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>$\lceil我爱机器学习\rfloor SVM(二)线性可分支持向量机$</title>
+    <link href="http://yoursite.com/2019/06/01/svm2/"/>
+    <id>http://yoursite.com/2019/06/01/svm2/</id>
+    <published>2019-06-01T08:54:53.000Z</published>
+    <updated>2019-06-01T09:33:00.037Z</updated>
+    
+    <content type="html"><![CDATA[<p>不等式约束条件下的极值会比较麻烦<br>实现的时候用拉格朗日对偶，将向量机的问题转化为对偶问题进行求解；</p><h1 id="拉格朗日对偶简介"><a href="#拉格朗日对偶简介" class="headerlink" title="拉格朗日对偶简介"></a>拉格朗日对偶简介</h1><p>拉格朗日对偶的基本思想，将一个不易于求解的最优化问题，这个最优化问题往往带有等式约束和不等式约束，转化为另外一个更容易求解的问题，两者等价。<br>其只是完成了转化，具体另外一个问题怎样求解，拉格朗日对偶并没有给出答案。</p><p>对偶是最优化理论的重要组成部分，拉格朗日对偶是典型代表，拉格朗日对偶通过使用拉格朗日乘数法类似的手段来构造目标函数，然后转化为另外一个问题。<br>(拉格朗日乘数法就是来求解一个带等式约束的极值，通过构造一个目标函数把原问题转化为对偶问题)</p><h1 id="原问题"><a href="#原问题" class="headerlink" title="原问题"></a>原问题</h1><p>对于如下带等式和不等式约束的优化问题：<br>$minf(x)$<br>$g_i(x) \leq 0  i=1,…,m$<br>$h_i(x) = 0 i=1,…,p$<br>仿照拉格朗日乘数法构造广义拉格朗日函数：<br>$L(x,\lambda,\nu)=f(x)+\sum_{i=1}^m \lambda_i \times g_i(x)+ \sum_{i=1}^p \nu_i \times h_i(x)$</p><p>$\lambda 作用于不等式约束,v是作用于等式约束的$</p><h1 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h1><h1 id="弱对偶"><a href="#弱对偶" class="headerlink" title="弱对偶"></a>弱对偶</h1><h1 id="弱对偶与Slater条件"><a href="#弱对偶与Slater条件" class="headerlink" title="弱对偶与Slater条件"></a>弱对偶与Slater条件</h1><h1 id="将SVM转化为对偶问题"><a href="#将SVM转化为对偶问题" class="headerlink" title="将SVM转化为对偶问题"></a>将SVM转化为对偶问题</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;不等式约束条件下的极值会比较麻烦&lt;br&gt;实现的时候用拉格朗日对偶，将向量机的问题转化为对偶问题进行求解；&lt;/p&gt;
+&lt;h1 id=&quot;拉格朗日对偶简介&quot;&gt;&lt;a href=&quot;#拉格朗日对偶简介&quot; class=&quot;headerlink&quot; title=&quot;拉格朗日对偶简介&quot;&gt;&lt;/a&gt;拉格
+      
+    
+    </summary>
+    
+      <category term="ML" scheme="http://yoursite.com/categories/ML/"/>
+    
+    
+      <category term="SVM" scheme="http://yoursite.com/tags/SVM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>学习进度安排</title>
     <link href="http://yoursite.com/2019/05/31/LearnPlan/"/>
     <id>http://yoursite.com/2019/05/31/LearnPlan/</id>
     <published>2019-05-31T01:31:27.000Z</published>
-    <updated>2019-05-31T01:45:40.030Z</updated>
+    <updated>2019-06-01T07:41:32.558Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="专业学习计划"><a href="#专业学习计划" class="headerlink" title="专业学习计划"></a>专业学习计划</h1><p>在这篇文章中，窝会持续更新理清自己阶段性要学习掌握的内容，一方面是对自己当下技能点的总结，一方面想勉励自己把握好方向，少走弯路。</p><h2 id="总进度表"><a href="#总进度表" class="headerlink" title="总进度表"></a>总进度表</h2><table><thead><tr><th>学习内容</th><th style="text-align:right">要求</th><th style="text-align:center">截止时间</th><th style="text-align:center">完成状态</th></tr></thead><tbody><tr><td>Python扎实基础</td><td style="text-align:right">12章内容知识熟捻于心</td><td style="text-align:center">6月3日</td><td style="text-align:center"></td></tr><tr><td>Py文件操作总结博客</td><td style="text-align:right">对Py常用文件操作熟捻于心</td><td style="text-align:center">6月1日</td><td style="text-align:center"></td></tr><tr><td>Py中csv的处理总结博客</td><td style="text-align:right">对pandas以及csv模块的操作熟捻于心</td><td style="text-align:center">6月2号</td></tr></tbody></table><h2 id="5-31-6-7："><a href="#5-31-6-7：" class="headerlink" title="5.31 - 6.7："></a>5.31 - 6.7：</h2><p>目标：拿下杭州量化方向的offer</p><p>技能点：Python扎实基础、Py文件操作、Py处理csv操作(pandas那块)、机器学习基础知识</p><h3 id="JD禹大佬建议"><a href="#JD禹大佬建议" class="headerlink" title="JD禹大佬建议"></a>JD禹大佬建议</h3><ol><li>先找工作，工作帮助自己有正常的生活节奏；</li><li>积累技术，不去做重复劳动；</li><li>熟悉下行业，并且把其中的开源方案想透彻，消化完并梳理成文档，按照米筐、雪球、优矿、bigquant上量化网站的教程来写；</li><li>提升自己的眼界以及对新技术的敏感，多看社区；</li></ol><h3 id="学习进度安排"><a href="#学习进度安排" class="headerlink" title="学习进度安排"></a>学习进度安排</h3><ul><li><p>[ ] 对Py基础的用法要炉火纯青,并有自己的思维导图</p><p>   Py基本类型操作(重点字符串操作)、Py中组的操作(列表,元组,集合,字典)、Py运算符、Py分支循环条件枚举的Pythonic写法、Py作用域、Py函数、面向对象、正则表达式json、Py高阶、Py函数式编程:匿名高阶装饰器函数、Pythonic总结</p><p>  5.31 完成面向对象之前的内容模块；</p><p>  6.1 复习之前模块笔记，并结合手册完成正则+高阶</p><p>  6.2 复习之前模块笔记，完成函数式编程及之后模块</p></li><li><p>[ ] Py文件模块熟捻于心</p><p>  6.1 之前完成传智中对文件操作的视频学习，并结合手册扩展自己的思维导图</p></li><li><p>Py对csv的操作处理</p></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="专业学习计划"><a href="#专业学习计划" class="headerlink" title="专业学习计划"></a>专业学习计划</h1><p>在这篇文章中，窝会持续更新理清自己阶段性要学习掌握的内容，一方面是对自己当下技能点的总结，一方面想勉励自己把握好方向，少走弯路。</p><h2 id="总进度表"><a href="#总进度表" class="headerlink" title="总进度表"></a>总进度表</h2><table><thead><tr><th>学习内容</th><th style="text-align:right">要求</th><th style="text-align:center">截止时间</th><th style="text-align:center">完成状态</th></tr></thead><tbody><tr><td>Python扎实基础</td><td style="text-align:right">12章内容知识熟捻于心</td><td style="text-align:center">6月3日</td><td style="text-align:center"></td></tr><tr><td>Py文件操作总结博客</td><td style="text-align:right">对Py常用文件操作熟捻于心</td><td style="text-align:center">6月1日</td><td style="text-align:center"></td></tr><tr><td>Py中csv的处理总结博客</td><td style="text-align:right">对pandas以及csv模块的操作熟捻于心</td><td style="text-align:center">6月2号</td></tr></tbody></table><h2 id="5-31-6-7："><a href="#5-31-6-7：" class="headerlink" title="5.31 - 6.7："></a>5.31 - 6.7：</h2><p>目标：拿下杭州量化方向的offer</p><p>技能点：Python扎实基础、Py文件操作、Py处理csv操作(pandas那块)、机器学习基础知识</p><h3 id="JD禹大佬建议"><a href="#JD禹大佬建议" class="headerlink" title="JD禹大佬建议"></a>JD禹大佬建议</h3><ol><li>先找工作，工作帮助自己有正常的生活节奏；</li><li>积累技术，不去做重复劳动；</li><li>熟悉下行业，并且把其中的开源方案想透彻，消化完并梳理成文档，按照米筐、雪球、优矿、bigquant上量化网站的教程来写；</li><li>提升自己的眼界以及对新技术的敏感，多看社区；</li></ol><h3 id="学习进度安排"><a href="#学习进度安排" class="headerlink" title="学习进度安排"></a>学习进度安排</h3><ul><li><p>[ ] 对Py基础的用法要炉火纯青,并有自己的思维导图</p><p>Py基本类型操作(重点字符串操作)、Py中组的操作(列表,元组,集合,字典)、Py运算符、Py分支循环条件枚举的Pythonic写法、Py作用域、Py函数、面向对象、正则表达式json、Py高阶、Py函数式编程:匿名高阶装饰器函数、Pythonic总结</p><p>5.31 完成面向对象之前的内容模块；</p><p>6.1 复习之前模块笔记，并结合手册完成正则+高阶</p><p>6.2 复习之前模块笔记，完成函数式编程及之后模块</p></li><li><p>[ ] Py文件模块熟捻于心</p><p>6.1 之前完成传智中对文件操作的视频学习，并结合手册扩展自己的思维导图</p></li><li><p>Py对csv的操作处理</p></li></ul>]]></content>
     
     <summary type="html">
     
@@ -46,7 +72,7 @@
     <link href="http://yoursite.com/2019/05/11/svm1/"/>
     <id>http://yoursite.com/2019/05/11/svm1/</id>
     <published>2019-05-11T10:31:30.000Z</published>
-    <updated>2019-05-11T11:40:43.142Z</updated>
+    <updated>2019-06-01T08:56:15.765Z</updated>
     
     <content type="html"><![CDATA[<h1 id="线性分类器"><a href="#线性分类器" class="headerlink" title="线性分类器"></a>线性分类器</h1><p>SVM是找到一个最佳位置的超平面把样本分开，如果分开的是二分类的问题，我们将分开的样本定义为正样本和负样本，样本的标签值为+1或-1。</p><p>这里的超平面，在二维空间中，就表示一条直线；在三维空间中就表示平面，更高维空间中表示平面的推广。</p><p>在高中时学习平面解析几何时，我们将直线表示为：  </p><p>$ax + by + c = 0$</p><p>而不能将其表示为：$y = kx + b$</p><p>因为对于k，b表示的直线来说，当直线垂直于x轴时，k = $+\infty$</p><p>同理，在空间解析几何中，我们将三维空间中的平面表示为：<br>$ax+by+cz+d=0$</p><p>推广到高维空间就可以表示为：</p><p>$W^TX+b=0$ </p><p>W就表示n维空间，其表示$(w_1,w_2,…,w_n)这n个分量分别与(x_1,x_2,…,x_n)$这n个分量进行相乘，W称为权重向量，b称为偏置项。</p><p>落在超平面一侧的样本是大于0 或者小于0的，对于二分类的问题来说，我们可以使用$sgn(w^Tx+b)$来对样本进行预测。</p><p>超平面的方程只是给出了一个分界面，具体哪一边为正，哪边为负，我们是可以进行灵活控制的。</p><p>拿一个二维直线举例，当方程乘以一个负数时，其就会反号。其方程还是原来的直线方程，在n维空间中还是表示同样的超平面，但是判定的符号相反了。如过(1,0),(0,1)点的直线x + y - 1=0，对于点(2, -2)来说，是小于0的，但是对方程x + y -1 = 0乘以负号后，对于点(2, -2)的判断就变为大于0了。所以通过控制w、b的值，我们可以控制分类的正负号。</p><p>这样对于$W^TX + b = 0$而言，我们可以对其乘以一个不等于0的系数k，代表的还是同一条超平面的直线，如果k小于0时，还会出现反号的情况，因此对于同一条直线而言，是存在冗余的w、b值的。</p><h1 id="分类间隔"><a href="#分类间隔" class="headerlink" title="分类间隔"></a>分类间隔</h1><p>对于一个线性可分的问题，我们可以用一条直线，在高维空间中就是一个超平面把两个样本分开。</p><p>但是往往能把两个样本进行分开的分类器不止一个，那么哪一个是最好的呢？</p><p>这里我们定义一个规则：</p><ol><li><p>保证样本都能被超平面正确分类；</p></li><li><p>分类超平面离两个样本的距离都尽可能的远；</p></li></ol><h1 id="最大化分类间隔"><a href="#最大化分类间隔" class="headerlink" title="最大化分类间隔"></a>最大化分类间隔</h1><p>核心思想：最大化分类间隔的线性分类器；</p><p>第一个目标是：能把样本正确分类，即对于正样本来说: $w^Tx_i+b &gt;= 0$，对于负样本有：$w^Tx_i+b &lt;0$,可以统一写为$y_i(w^Tx_i+b) &gt;= 0$</p><p>第二个目标是分类超平面离两个样本都尽可能的远：</p><p>在平面解析几何中，对于直线：$ax + by + c = 0$来说，样本点到直线的距离为：$\frac{\mid ax + by +c\mid}{\sqrt{a^2+b^2}}\quad$，对于三维空间中的平面$ax + by + cz + d = 0$来说，样本点到平面的距离为：$\frac{\mid ax + by +cz+d\mid}{\sqrt{a^2+b^2+c^2}}\quad$</p><p>那么当推广到高维空间中，可以将其表示为：</p><p>$d = \frac{\mid W^TX+b\mid}{||w||}\quad$</p><p>在满足第一个条件约束的条件下，训练算法通过定义w和b，来极大化距离d的值。这个问题非常麻烦，因为w，b值不确定，又要对所有的点求出其距离d的值。</p><p>超平面的方程存在着冗余， $k(w,b)$仍然是问题的最优解，那么我们简化这个问题的方法是：让$\mid W^TX+b\mid=c$，这样的话，求得的w和b的值就只有一组解。为了简化c的表示，我们这里让c的值取1.</p><p>对w和b进行限定，以消掉冗余，同时简化问题的表达式：</p><p>令$min\mid w^Tx_i+b\mid=1$,这被称为规范化超平面，即最小距离的超平面。</p><p>上面的约束条件等价于：$y_i(w^Tx_i+b) &gt;= 1$</p><p>$d(w,b) = min_{x_i,y_i=-1}d(w,b;x_i)+min_{x_i,y_i=1}d(w,b;x_i)$</p><p>$=min_{x_i,y_i=-1}\frac{\mid w^Tx_i+b \mid}{||w||}\quad+min_{x_i,y_i=1}\frac{\mid w^Tx_i+b \mid}{||w||}\quad$</p><p>$=\frac{1}{||w||}\quad(min_{x_i,y_i=-1}\mid w^Tx_i+b\mid+min_{x_i,y_i=1}\mid w^Tx_i+b\mid)$</p><p>$=\frac{2}{||w||}\quad$</p><h1 id="线性可分时的原问题"><a href="#线性可分时的原问题" class="headerlink" title="线性可分时的原问题"></a>线性可分时的原问题</h1><p>前面我们提到，为了满足两个条件，由$min\mid y_i(w^Tx_i+b) \mid=1$，得到：$y = (w^Tx_i+b)&gt;=1$，并且使得$||w||$最小化，即$\sqrt{w_1^2+w_2^2+{\ldots}+w_n^2}$最小化，其实就是$W^TW$最小化，最后表示为：$min \frac{1}{2}W^TW\quad$，之所以要有$\frac{1}{2}\quad$,是因为在$W^TW$中会出现$x^2$，而对f(x)求导时，为了消除2的倍数的影响。</p><p>因此，支持向量机是根据正样本负样本(二分类)来找出这样一个超平面，来通过求解带不等式条件约束的极值问题来确定w和b的值。</p><h1 id="凸优化的证明"><a href="#凸优化的证明" class="headerlink" title="凸优化的证明"></a>凸优化的证明</h1><p>凸优化问题：$minf(x)$是一个凸函数，集合为凸集；</p><p>很好的性质就是一定能找到有全局最优点，由线性等式来得到一个</p>]]></content>
     
