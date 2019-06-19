@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="包袱真多">
 <meta property="og:description" content="不等式约束条件下的极值会比较麻烦实现的时候用拉格朗日对偶，将向量机的问题转化为对偶问题进行求解； 拉格朗日对偶简介拉格朗日对偶的基本思想，将一个不易于求解的最优化问题，这个最优化问题往往带有等式约束和不等式约束，转化为另外一个更容易求解的问题，两者等价。其只是完成了转化，具体另外一个问题怎样求解，拉格朗日对偶并没有给出答案。 对偶是最优化理论的重要组成部分，拉格朗日对偶是典型代表，拉格朗日对偶通过">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-01T09:33:00.037Z">
+<meta property="og:updated_time" content="2019-06-03T06:19:47.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="$\lceil我爱机器学习\rfloor SVM(二)线性可分支持向量机$">
 <meta name="twitter:description" content="不等式约束条件下的极值会比较麻烦实现的时候用拉格朗日对偶，将向量机的问题转化为对偶问题进行求解； 拉格朗日对偶简介拉格朗日对偶的基本思想，将一个不易于求解的最优化问题，这个最优化问题往往带有等式约束和不等式约束，转化为另外一个更容易求解的问题，两者等价。其只是完成了转化，具体另外一个问题怎样求解，拉格朗日对偶并没有给出答案。 对偶是最优化理论的重要组成部分，拉格朗日对偶是典型代表，拉格朗日对偶通过">
@@ -360,7 +360,10 @@
 <p>对偶是最优化理论的重要组成部分，拉格朗日对偶是典型代表，拉格朗日对偶通过使用拉格朗日乘数法类似的手段来构造目标函数，然后转化为另外一个问题。<br>(拉格朗日乘数法就是来求解一个带等式约束的极值，通过构造一个目标函数把原问题转化为对偶问题)</p>
 <h1 id="原问题"><a href="#原问题" class="headerlink" title="原问题"></a>原问题</h1><p>对于如下带等式和不等式约束的优化问题：<br>$minf(x)$<br>$g_i(x) \leq 0  i=1,…,m$<br>$h_i(x) = 0 i=1,…,p$<br>仿照拉格朗日乘数法构造广义拉格朗日函数：<br>$L(x,\lambda,\nu)=f(x)+\sum_{i=1}^m \lambda_i \times g_i(x)+ \sum_{i=1}^p \nu_i \times h_i(x)$</p>
 <p>$\lambda 作用于不等式约束,v是作用于等式约束的$</p>
-<h1 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h1><h1 id="弱对偶"><a href="#弱对偶" class="headerlink" title="弱对偶"></a>弱对偶</h1><h1 id="弱对偶与Slater条件"><a href="#弱对偶与Slater条件" class="headerlink" title="弱对偶与Slater条件"></a>弱对偶与Slater条件</h1><h1 id="将SVM转化为对偶问题"><a href="#将SVM转化为对偶问题" class="headerlink" title="将SVM转化为对偶问题"></a>将SVM转化为对偶问题</h1>
+<p>$p = min_xmax_{\lambda,\nu}L(x,\lambda,\nu])$</p>
+<p>即先固定住原始的优化变量x，对乘子变量求极大值，然后再对x求极小值。</p>
+<p>可以证明，这个问题与我们要求解的问题是等价的。</p>
+<h1 id="原问题和原始问题等价性的证明"><a href="#原问题和原始问题等价性的证明" class="headerlink" title="原问题和原始问题等价性的证明"></a>原问题和原始问题等价性的证明</h1><h1 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h1><h1 id="弱对偶"><a href="#弱对偶" class="headerlink" title="弱对偶"></a>弱对偶</h1><h1 id="弱对偶与Slater条件"><a href="#弱对偶与Slater条件" class="headerlink" title="弱对偶与Slater条件"></a>弱对偶与Slater条件</h1><h1 id="将SVM转化为对偶问题"><a href="#将SVM转化为对偶问题" class="headerlink" title="将SVM转化为对偶问题"></a>将SVM转化为对偶问题</h1>
       
     </div>
     
@@ -579,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#拉格朗日对偶简介"><span class="nav-number">1.</span> <span class="nav-text">拉格朗日对偶简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原问题"><span class="nav-number">2.</span> <span class="nav-text">原问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对偶问题"><span class="nav-number">3.</span> <span class="nav-text">对偶问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#弱对偶"><span class="nav-number">4.</span> <span class="nav-text">弱对偶</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#弱对偶与Slater条件"><span class="nav-number">5.</span> <span class="nav-text">弱对偶与Slater条件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将SVM转化为对偶问题"><span class="nav-number">6.</span> <span class="nav-text">将SVM转化为对偶问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#拉格朗日对偶简介"><span class="nav-number">1.</span> <span class="nav-text">拉格朗日对偶简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原问题"><span class="nav-number">2.</span> <span class="nav-text">原问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原问题和原始问题等价性的证明"><span class="nav-number">3.</span> <span class="nav-text">原问题和原始问题等价性的证明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对偶问题"><span class="nav-number">4.</span> <span class="nav-text">对偶问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#弱对偶"><span class="nav-number">5.</span> <span class="nav-text">弱对偶</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#弱对偶与Slater条件"><span class="nav-number">6.</span> <span class="nav-text">弱对偶与Slater条件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将SVM转化为对偶问题"><span class="nav-number">7.</span> <span class="nav-text">将SVM转化为对偶问题</span></a></li></ol></div>
             
 
           </div>
